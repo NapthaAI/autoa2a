@@ -3,12 +3,12 @@ from pydantic import BaseModel
 from langchain_core.messages import AIMessage
 from langgraph.types import StateSnapshot
 
-# TODO: Import the user agent class
-# from agent import MyAgent
+# Import the user agent class
+from self_discover_agent import SelfDiscoverAgent  # Replace with actual agent
 
-# TODO: Define the TaskInput schema
 class TaskInput(BaseModel):
-    query: str  # Add fields as needed
+    task_description: str
+    reasoning_modules: str = "\n".join(SelfDiscoverAgent().get_reasoning_modules())
 
 class ResponseFormat(BaseModel):
     status: Literal["input_required", "completed", "error"]
@@ -16,7 +16,7 @@ class ResponseFormat(BaseModel):
 
 class LangGraphA2AWrapperAgent:
     def __init__(self):
-        self.agent_graph = MyAgent()  # TODO: Replace with actual agent
+        self.agent_graph = SelfDiscoverAgent().get_agent()  # Replace with actual agent
 
     def invoke(self, input_data: TaskInput, sessionId: str) -> dict:
         config = {"configurable": {"thread_id": sessionId}}
@@ -65,20 +65,20 @@ class LangGraphA2AWrapperAgent:
                     "content": wrapped.message,
                 }
 
-        # CustomResponseFormat
-        # answer = state.values.get("answer", "")
-        # if answer:
-        #     return {
-        #         "is_task_complete": True,
-        #         "require_user_input": False,
-        #         "content": answer,
-        #     }
+        answer = state.values.get("answer", "")
+        if answer:
+            return {
+                "is_task_complete": True,
+                "require_user_input": False,
+                "content": answer,
+            }
 
         # Fallback: unable to generate a response
         fallback = ResponseFormat(
             status="input_required",
             message="Unable to generate a response."
         )
+
         return {
             "is_task_complete": False,
             "require_user_input": True,

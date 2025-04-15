@@ -148,5 +148,5 @@ class AgentTaskManager(InMemoryTaskManager):
     def _build_task_input(self, task_send_params: TaskSendParams) -> TaskInput:
         parts = task_send_params.message.parts
 
-        # TODO: Customize this mapping to match your TaskInput schema
-        return TaskInput(query=parts[0].text)
+        # Customize this mapping to match your TaskInput schema
+        return TaskInput(task_description=parts[0].text)

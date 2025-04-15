@@ -19,16 +19,16 @@ def main(host, port):
     try:
         capabilities = AgentCapabilities(streaming=True, pushNotifications=True)
         skill = AgentSkill(
-            id="langgraph_agent", # TODO: Change this to the agent's ID
-            name="Generic LangGraph Agent", # TODO: Change this to the agent's name
-            description="Plug your LangGraph logic into this A2A scaffold", # TODO: Change this to the agent's description
-            tags=["langgraph", "reasoning", "agent"], # TODO: Change this to the agent's tags
-            examples=["Example task for LangGraph agent"], # TODO: Change this to the agent's examples
+            id="self_discover_agent",
+            name="Self Discover Agent",
+            description="This agent discovers the best way to solve a problem",
+            tags=["self_discover", "reasoning", "agent"],
+            examples=["Example task for Self Discover Agent"],
         )
 
         agent_card = AgentCard(
-            name="LangGraph A2A Agent", # TODO: Change this to the agent's name
-            description="This agent runs LangGraph logic via A2A", # TODO: Change this to the agent's description
+            name="Self Discover Agent",
+            description="This agent discovers the best way to solve a problem",
             url=f"http://{host}:{port}/",
             version="0.1.0",
             defaultInputModes=LangGraphA2AWrapperAgent.SUPPORTED_CONTENT_TYPES,
