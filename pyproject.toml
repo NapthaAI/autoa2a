@@ -1,0 +1,28 @@
+[project]
+name = "autoa2a"
+version = "0.1.0"
+description = "Converts any agent into A2A server"
+requires-python = ">=3.12"
+dependencies = [
+    "langgraph>=0.3.25",
+    "pydantic>=2.11.1",
+    "click>=8.1.8",
+    "jinja2>=3.1.6",
+    "uvicorn>=0.17.0",
+    "a2a-samples @ git+https://github.com/google/A2A.git@main#subdirectory=samples/python",
+    "langchain>=0.3.23",
+    "langchain-openai>=0.3.12",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["autoa2a"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[project.scripts]
+autoa2a = "autoa2a.cli:autoa2a"
