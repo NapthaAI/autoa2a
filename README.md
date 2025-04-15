@@ -1,4 +1,4 @@
-# autoa2a
+# AutoA2A
 
 **Convert any agent into an A2A-compatible server**
 
