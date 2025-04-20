@@ -19,16 +19,16 @@ def main(host, port):
     try:
         capabilities = AgentCapabilities(streaming=True, pushNotifications=True)
         skill = AgentSkill(
-            id="reflection_agent",
-            name="Reflection Agent",
-            description="This agent reflects on the user's query",
-            tags=["reflection", "reasoning", "agent"],
-            examples=["Example task for Reflection agent"],
+            id="llama_index_query_agent",
+            name="Llama Index Query Agent",
+            description="Query the Llama Index",
+            tags=["llama_index", "query", "agent"],
+            examples=["Which city has the highest population?"],
         )
 
         agent_card = AgentCard(
-            name="Reflection Agent",
-            description="This agent reflects on the user's query",
+            name="Llama Index Query Agent",
+            description="Llama Index Query Agent that queries the Vector Store",
             url=f"http://{host}:{port}/",
             version="0.1.0",
             defaultInputModes=A2AWrapperAgent.SUPPORTED_CONTENT_TYPES,

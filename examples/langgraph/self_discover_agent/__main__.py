@@ -2,7 +2,7 @@ from common.server import A2AServer
 from common.types import AgentCard, AgentCapabilities, AgentSkill, MissingAPIKeyError
 from common.utils.push_notification_auth import PushNotificationSenderAuth
 from taskmanager import AgentTaskManager
-from agent import LangGraphA2AWrapperAgent
+from agent import A2AWrapperAgent
 import click
 import os
 import logging
@@ -31,8 +31,8 @@ def main(host, port):
             description="This agent discovers the best way to solve a problem",
             url=f"http://{host}:{port}/",
             version="0.1.0",
-            defaultInputModes=LangGraphA2AWrapperAgent.SUPPORTED_CONTENT_TYPES,
-            defaultOutputModes=LangGraphA2AWrapperAgent.SUPPORTED_CONTENT_TYPES,
+            defaultInputModes=A2AWrapperAgent.SUPPORTED_CONTENT_TYPES,
+            defaultOutputModes=A2AWrapperAgent.SUPPORTED_CONTENT_TYPES,
             capabilities=capabilities,
             skills=[skill],
         )
@@ -43,7 +43,7 @@ def main(host, port):
         server = A2AServer(
             agent_card=agent_card,
             task_manager=AgentTaskManager(
-                agent=LangGraphA2AWrapperAgent(),
+                agent=A2AWrapperAgent(),
                 notification_sender_auth=notification_sender_auth,
             ),
             host=host,

@@ -14,7 +14,7 @@ class ResponseFormat(BaseModel):
     status: Literal["input_required", "completed", "error"]
     message: str
 
-class LangGraphA2AWrapperAgent:
+class A2AWrapperAgent:
     def __init__(self):
         self.agent_graph = SelfDiscoverAgent().get_agent()  # Replace with actual agent
 

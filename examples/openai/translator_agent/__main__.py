@@ -19,16 +19,16 @@ def main(host, port):
     try:
         capabilities = AgentCapabilities(streaming=True, pushNotifications=True)
         skill = AgentSkill(
-            id="reflection_agent",
-            name="Reflection Agent",
-            description="This agent reflects on the user's query",
-            tags=["reflection", "reasoning", "agent"],
-            examples=["Example task for Reflection agent"],
+            id="openai_translator_agent",
+            name="OpenAI Translator Agent",
+            description="Translate text from English to Spanish, French or Italian",
+            tags=["openai", "translation", "agent"],
+            examples=["Translate 'Hello, world!' to Spanish"],
         )
 
         agent_card = AgentCard(
-            name="Reflection Agent",
-            description="This agent reflects on the user's query",
+            name="OpenAI Translator Agent",
+            description="Translate text from English to Spanish, French or Italian",
             url=f"http://{host}:{port}/",
             version="0.1.0",
             defaultInputModes=A2AWrapperAgent.SUPPORTED_CONTENT_TYPES,
