@@ -1,0 +1,15 @@
+[project]
+name = "self-discover-a2a-agent"
+version = "0.1.0"
+description = "An agent that discovers the best way to solve a problem"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain>=0.3.23",
+    "langchain-core>=0.3.55",
+    "langchain-openai>=0.3.14",
+    "langgraph>=0.3.31",
+    "autoa2a"
+]
+
+[tool.uv.sources]
+autoa2a = { path = "../../../" }

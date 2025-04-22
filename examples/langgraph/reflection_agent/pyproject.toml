@@ -1,0 +1,14 @@
+[project]
+name = "reflection-a2a-agent"
+version = "0.1.0"
+description = "An agent that reflects on user's query"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain-openai>=0.3.14",
+    "langgraph>=0.3.31",
+    "autoa2a",
+    "langchain-core>=0.3.55",
+]
+
+[tool.uv.sources]
+autoa2a = { path = "../../../" }

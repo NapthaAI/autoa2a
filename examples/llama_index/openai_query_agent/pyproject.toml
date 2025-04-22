@@ -1,0 +1,16 @@
+[project]
+name = "llamaindex-query-a2a-agent"
+version = "0.1.0"
+description = "A Llama Index Query Agent that queries the Vector Store"
+requires-python = ">=3.12"
+dependencies = [
+    "autoa2a",
+    "llama-index>=0.12.32",
+    "llama-index-core>=0.12.32",
+    "llama-index-llms-openai>=0.3.38",
+    "llama-index-readers-wikipedia>=0.3.0",
+    "llama-index-vector-stores-pinecone>=0.4.5",
+]
+
+[tool.uv.sources]
+autoa2a = { path = "../../../" }

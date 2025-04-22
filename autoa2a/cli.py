@@ -17,7 +17,7 @@ def autoa2a():
 def init(framework):
     """Initialize a scaffold for A2A server."""
     try:
-        if framework in ["langgraph", "openai", "llama-index"]:
+        if framework in ["langgraph", "openai", "llama-index", "crewai"]:
             template_dir = os.path.join(AGENT_SPECIFIC_TEMPLATE_DIR, framework)
         else:
             raise ValueError(f"Unsupported framework: {framework}")

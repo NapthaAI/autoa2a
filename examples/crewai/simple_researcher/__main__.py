@@ -19,16 +19,16 @@ def main(host, port):
     try:
         capabilities = AgentCapabilities(streaming=True, pushNotifications=True)
         skill = AgentSkill(
-            id="llama_index_query_agent",
-            name="Llama Index Query Agent",
-            description="Llama Index Query Agent that queries the Vector Store",
-            tags=["llama_index", "query", "agent"],
-            examples=["Which city has the highest population?"],
+            id="simple_researcher",
+            name="Simple Researcher",
+            description="A simple researcher agent that uses CrewAI",
+            tags=["a2a", "research", "agent"],
+            examples=["Research the topic 'AI in healthcare'"],
         )
 
         agent_card = AgentCard(
-            name="Llama Index Query Agent",
-            description="Llama Index Query Agent that queries the Vector Store",
+            name="Simple Researcher",
+            description="A simple researcher agent that uses CrewAI",
             url=f"http://{host}:{port}/",
             version="0.1.0",
             defaultInputModes=A2AWrapperAgent.SUPPORTED_CONTENT_TYPES,

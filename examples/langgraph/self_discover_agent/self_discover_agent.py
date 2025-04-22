@@ -164,7 +164,8 @@ if __name__ == "__main__":
 
         # Run the agent
         agent = SelfDiscoverAgent().get_agent()
-        result = await agent.ainvoke({"task_description": task_example, "reasoning_modules": reasoning_modules_str})
+        config = {"configurable": {"thread_id": "test-session"}}
+        result = await agent.ainvoke({"task_description": task_example, "reasoning_modules": reasoning_modules_str}, config)
         print("Results:", result)
 
     # Run the async main function

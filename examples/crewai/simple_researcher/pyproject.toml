@@ -1,0 +1,13 @@
+[project]
+name = "crewai-researcher-agent"
+version = "0.1.0"
+description = "An agent that researcher a given topic"
+requires-python = ">=3.12"
+dependencies = [
+    "autoa2a",
+    "crewai>=0.95.0",
+    "crewai-tools>=0.33.0",
+]
+
+[tool.uv.sources]
+autoa2a = { path = "../../../" }

@@ -1,0 +1,12 @@
+[project]
+name = "openai-translator-a2a-agent"
+version = "0.1.0"
+description = "An agent that translates text from English to Spanish, French or Italian"
+requires-python = ">=3.12"
+dependencies = [
+    "openai-agents>=0.0.11",
+    "autoa2a"
+]
+
+[tool.uv.sources]
+autoa2a = { path = "../../../" }

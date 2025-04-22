@@ -109,12 +109,13 @@ if __name__ == "__main__":
 
     start = time.time()
     reflection_agent = ReflectionAgent()
+    config = {"configurable": {"thread_id": "test-session"}}
 
     initial_state = {
         "query": "Write an essay on the topicality of The Little Prince and its message in modern life",
     }
 
-    final_state = asyncio.run(reflection_agent.graph.ainvoke(initial_state))
+    final_state = asyncio.run(reflection_agent.graph.ainvoke(initial_state, config))
     print(final_state)
     end = time.time()
     print(f"\nTime taken: {end - start:.2f} seconds")
