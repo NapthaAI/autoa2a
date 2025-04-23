@@ -144,8 +144,7 @@ class AgentTaskManager(InMemoryTaskManager):
 
         if not isinstance(parts[0], TextPart):
             raise ValueError("Only text parts are supported.")
-
-        # TODO: Customize this mapping to match your TaskInput schema
+        
         return TaskInput(query=parts[0].text)
     
     async def set_push_notification_info(self, task_id: str, push_notification_config: PushNotificationConfig):

@@ -13,11 +13,11 @@ def autoa2a():
     pass
 
 @click.command()
-@click.option('--framework', type=str, default='langgraph', help='Framework name (e.g., langgraph, openai, llama-index, other)')
+@click.option('--framework', type=str, default='langgraph', help='Framework name (e.g., langgraph, openai, llama-index, crewai, pydantic, other)')
 def init(framework):
     """Initialize a scaffold for A2A server."""
     try:
-        if framework in ["langgraph", "openai", "llama-index", "crewai"]:
+        if framework in ["langgraph", "openai", "llama-index", "crewai", "pydantic"]:
             template_dir = os.path.join(AGENT_SPECIFIC_TEMPLATE_DIR, framework)
         else:
             raise ValueError(f"Unsupported framework: {framework}")

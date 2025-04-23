@@ -7,7 +7,7 @@ class TaskInput(BaseModel):
 
 class A2AWrapperAgent:
     def __init__(self):
-        self.agent = SimpleResearcherCrew()  # TODO: Replace with the actual agent class
+        self.agent = SimpleResearcherCrew()
 
     async def invoke(self, input_data: TaskInput, sessionId: str) -> Dict[str, Any]:
         try:
@@ -18,7 +18,6 @@ class A2AWrapperAgent:
                 "is_task_complete": True,
                 "require_user_input": False,
                 "content": str(result),
-                # optionally, include metadata for downstream artifact retrieval
                 "metadata": {
                     "artifact_id": str(result),
                     "session_id": sessionId

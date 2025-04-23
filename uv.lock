@@ -5,7 +5,7 @@ requires-python = ">=3.12"
 [[package]]
 name = "a2a-samples"
 version = "0.1.0"
-source = { git = "https://github.com/google/A2A.git?subdirectory=samples%2Fpython&rev=main#fb2f1dcd34308a4b7df1bdaffacaa929e0b1b258" }
+source = { git = "https://github.com/google/A2A.git?subdirectory=samples%2Fpython&rev=main#e3c657383684b44fa497160ba18d7fa8f6c864ee" }
 dependencies = [
     { name = "httpx" },
     { name = "httpx-sse" },

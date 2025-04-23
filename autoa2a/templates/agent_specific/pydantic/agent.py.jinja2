@@ -1,0 +1,72 @@
+from typing import Dict, Any, AsyncIterable
+from pydantic import BaseModel
+from agent import MyPydanticAgent  # TODO: Replace with your actual agent import
+
+class TaskInput(BaseModel):
+    query: str
+
+class A2AWrapperAgent:
+    def __init__(self):
+        self.agent = MyPydanticAgent()  # TODO: Replace with your actual agent
+
+    async def invoke(self, input_data: TaskInput, sessionId: str) -> Dict[str, Any]:
+        try:
+            result = await self.agent.run_sync(input_data.query)
+
+            return {
+                "is_task_complete": True,
+                "require_user_input": False,
+                "content": str(result.data)
+            }
+        except Exception as e:
+            return {
+                "is_task_complete": False,
+                "require_user_input": True,
+                "content": f"Error: {str(e)}"
+            }
+
+    async def stream(self, input_data: TaskInput, sessionId: str) -> AsyncIterable[Dict[str, Any]]:
+        try:
+            async with self.agent.iter(input_data.query) as agent_run:
+                async for node in agent_run:
+                    content = None
+
+                    # Final result from End node
+                    if hasattr(node, "data") and hasattr(node.data, "data"):
+                        content = node.data.data
+
+                    # Tool call information
+                    elif hasattr(node, "model_response") and hasattr(node.model_response, "parts"):
+                        for part in node.model_response.parts:
+                            if part.part_kind == "text":
+                                content = part.content
+                            elif part.part_kind == "tool-call":
+                                content = f"Calling tool `{part.tool_name}` with args: {part.args}"
+
+                    # Tool return values (from ModelRequestNode)
+                    elif hasattr(node, "request") and hasattr(node.request, "parts"):
+                        for part in node.request.parts:
+                            if part.part_kind == "tool-return":
+                                content = f"Tool `{part.tool_name}` returned: {part.content}"
+
+                    if content:
+                        yield {
+                            "is_task_complete": False,
+                            "require_user_input": False,
+                            "content": str(content)
+                        }
+
+            yield {
+                "is_task_complete": True,
+                "require_user_input": False,
+                "content": str(agent_run.result)
+            }
+
+        except Exception as e:
+            yield {
+                "is_task_complete": False,
+                "require_user_input": True,
+                "content": f"Streaming error: {str(e)}"
+            }
+
+    SUPPORTED_CONTENT_TYPES = ["text", "text/plain"]
