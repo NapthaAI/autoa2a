@@ -13,4 +13,4 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-autoa2a = { path = "../../../" }
+autoa2a = { path = "../../../" editable = true }
