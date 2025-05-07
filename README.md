@@ -235,6 +235,4 @@ class A2AWrapperAgent:
 
 
 2. Create an example in examples/your_framework/<your_example>/
-
-
-## 📝 Notes
+```
