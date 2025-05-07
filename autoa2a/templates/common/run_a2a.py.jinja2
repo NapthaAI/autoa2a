@@ -27,8 +27,8 @@ def main(host, port):
         )
 
         agent_card = AgentCard(
-            name="A2A Agent",
-            description="This agent runs A2A logic via A2A",
+            name="A2A Agent", # TODO: Change this to the agent's name
+            description="This agent runs A2A logic via A2A", # TODO: Change this to the agent's description
             url= os.getenv("PROXY_URL", f"http://{host}:{port}/"),
             version="0.1.0",
             defaultInputModes=A2AWrapperAgent.SUPPORTED_CONTENT_TYPES,
