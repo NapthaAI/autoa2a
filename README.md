@@ -178,7 +178,7 @@ uv run serve_a2a
 
 Want to add support for a new agent framework? Here's how:
 
-1. Create a new adapter file in autoa2a/templates/agent_specific/<framwork_folder>/agent.py (or add to an existing framework file):
+1. Create a new adapter file in `autoa2a/templates/agent_specific/<framwork_folder>/agent.py` (or add to an existing framework file):
 ```python
 # autoa2a/templates/agent_specific/<framwork_folder>/agent.py
 from typing import Dict, Any, AsyncIterable
@@ -289,7 +289,7 @@ from .my_agent.agent
 Once you have configured everything, commit and push your code (but not your environment variables!) to github. Then, you can test it to make sure you set up everything correctly:
 
 ```shell
-uvx --from https://github.com/your-username/your-repo serve_a2a
+uvx --from git+https://github.com/your-username/your-repo serve_a2a
 ```
 
 If this results in your A2A server being launched on port 10000 successfully, you're good to go!
