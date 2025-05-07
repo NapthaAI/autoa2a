@@ -21,7 +21,7 @@ Python 3.12+ is required.
 Install from source:
 
 ```bash
-git clone https://github.com/Satti-Gowtham/autoa2a
+git clone https://github.com/NapthaAI/autoa2a
 cd autoa2a
 pip install -e .
 ```
@@ -29,7 +29,7 @@ pip install -e .
 Or using UV:
 
 ```bash
-git clone https://github.com/Satti-Gowtham/autoa2a
+git clone https://github.com/NapthaAI/autoa2a
 cd autoa2a
 uv venv
 source .venv/bin/activate
@@ -161,7 +161,7 @@ The repository includes examples for each supported framework:
 
 ```bash
 # Clone the repository
-git clone https://github.com/Satti-Gowtham/autoa2a.git
+git clone https://github.com/NapthaAI/autoa2a.git
 cd autoa2a
 
 # Install autoa2a in development mode
