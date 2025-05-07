@@ -8,8 +8,21 @@ dependencies = [
     "langchain-core>=0.3.55",
     "langchain-openai>=0.3.14",
     "langgraph>=0.3.31",
-    "autoa2a"
+    "autoa2a",
+    "python-dotenv>=1.1.0",
 ]
 
 [tool.uv.sources]
-autoa2a = { path = "../../../" editable = true }
+autoa2a = { path = "../../../", editable = true }
+
+[build-system]
+requires = [ "hatchling", ]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+include = [ "./run_a2a.py" ]
+exclude = [ "__pycache__", "*.pyc" ]
+packages = [ "." ]
+
+[project.scripts]
+serve_a2a = "run_a2a:main"

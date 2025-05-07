@@ -77,6 +77,7 @@ dependencies = [
     { name = "click" },
     { name = "jinja2" },
     { name = "pydantic" },
+    { name = "python-dotenv" },
     { name = "uvicorn" },
 ]
 
@@ -86,6 +87,7 @@ requires-dist = [
     { name = "click", specifier = ">=8.1.8" },
     { name = "jinja2", specifier = ">=3.1.6" },
     { name = "pydantic", specifier = ">=2.11.1" },
+    { name = "python-dotenv", specifier = ">=1.1.0" },
     { name = "uvicorn", specifier = ">=0.17.0" },
 ]
 
@@ -881,7 +883,7 @@ wheels = [
 [[package]]
 name = "pydantic-weather-a2a-agent"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "autoa2a" },
     { name = "pydantic" },

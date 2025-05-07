@@ -13,23 +13,23 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 @click.command()
-@click.option("--host", "host", default="localhost")
+@click.option("--host", "host", default="0.0.0.0")
 @click.option("--port", "port", default=10000)
 def main(host, port):
     try:
         capabilities = AgentCapabilities(streaming=True, pushNotifications=True)
         skill = AgentSkill(
-            id="a2a_agent", # TODO: Change this to the agent's ID
-            name="Generic A2A Agent", # TODO: Change this to the agent's name
-            description="Plug your A2A logic into this A2A scaffold", # TODO: Change this to the agent's description
-            tags=["a2a", "reasoning", "agent"], # TODO: Change this to the agent's tags
-            examples=["Example task for A2A agent"], # TODO: Change this to the agent's examples
+            id="reflection_agent",
+            name="Reflection Agent",
+            description="This agent reflects on the user's query",
+            tags=["reflection", "reasoning", "agent"],
+            examples=["Example task for Reflection agent"],
         )
 
         agent_card = AgentCard(
-            name="A2A Agent",
-            description="This agent runs A2A logic via A2A",
-            url=f"http://{host}:{port}/",
+            name="Reflection Agent",
+            description="This agent reflects on the user's query",
+            url= os.getenv("PROXY_URL", f"http://{host}:{port}/"),
             version="0.1.0",
             defaultInputModes=A2AWrapperAgent.SUPPORTED_CONTENT_TYPES,
             defaultOutputModes=A2AWrapperAgent.SUPPORTED_CONTENT_TYPES,

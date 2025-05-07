@@ -13,7 +13,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 @click.command()
-@click.option("--host", "host", default="localhost")
+@click.option("--host", "host", default="0.0.0.0")
 @click.option("--port", "port", default=10000)
 def main(host, port):
     try:
@@ -29,7 +29,7 @@ def main(host, port):
         agent_card = AgentCard(
             name="Weather Agent",
             description="A pydantic agent that gets the weather in a given location",
-            url=f"http://{host}:{port}/",
+            url= os.getenv("PROXY_URL", f"http://{host}:{port}/"),
             version="0.1.0",
             defaultInputModes=A2AWrapperAgent.SUPPORTED_CONTENT_TYPES,
             defaultOutputModes=A2AWrapperAgent.SUPPORTED_CONTENT_TYPES,

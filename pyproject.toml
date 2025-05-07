@@ -9,6 +9,7 @@ dependencies = [
     "jinja2>=3.1.6",
     "uvicorn>=0.17.0",
     "a2a-samples @ git+https://github.com/google/A2A.git@main#subdirectory=samples/python",
+    "python-dotenv>=1.1.0",
 ]
 
 [build-system]

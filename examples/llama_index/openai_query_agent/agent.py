@@ -36,7 +36,6 @@ class A2AWrapperAgent:
     async def stream(self, input_data: TaskInput, sessionId: str) -> AsyncIterable[Dict[str, Any]]:
         try:
             ctx = self._get_context(sessionId)
-            print(ctx.to_dict())
             handler = self.agent.run(input_data.query, ctx=ctx)
 
             async for event in handler.stream_events():
