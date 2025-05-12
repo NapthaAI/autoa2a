@@ -343,4 +343,7 @@ uv sync
 uv run main.py
 ```
 4. Navigate to agent tab and add the agent by supplying the A2A server url
+
+**Note**: Add the url without the protocol in the client (eg: labs-api.naptha.ai:8080/a2a/<id> )
+
 5. Navigate to conversations tab and start conversation with the agent
