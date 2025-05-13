@@ -23,6 +23,7 @@ Install from source:
 ```bash
 git clone https://github.com/NapthaAI/autoa2a
 cd autoa2a
+git submodule update --init --recursive
 pip install -e .
 ```
 
@@ -31,6 +32,7 @@ Or using UV:
 ```bash
 git clone https://github.com/NapthaAI/autoa2a
 cd autoa2a
+git submodule update --init --recursive
 uv venv
 source .venv/bin/activate
 uv sync
