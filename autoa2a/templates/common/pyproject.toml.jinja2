@@ -1,0 +1,25 @@
+[project]
+name = "{{ project_name | default('autoa2a-agent') }}"
+version = "0.1.0"
+description = "{{ description | default('An A2A server agent') }}"
+requires-python = ">=3.12"
+dependencies = [
+    "autoa2a==0.0.3",
+    {%- if framework and framework_dependencies %}
+    {%- for dependency in framework_dependencies %}
+    "{{ dependency }}",
+    {%- endfor %}
+    {%- endif %}
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+include = ["./run_a2a.py"]
+exclude = ["__pycache__", "*.pyc"]
+packages = ["."]
+
+[project.scripts]
+serve_a2a = "run_a2a:main"

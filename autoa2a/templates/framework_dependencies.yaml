@@ -1,0 +1,24 @@
+# Framework-specific dependencies
+frameworks:
+  langgraph:
+    - "langgraph>=0.0.25"
+    - "langchain>=0.1.0"
+    - "langchain-openai>=0.0.2"
+  
+  openai:
+    - "openai-agents>=0.0.11"
+  
+  llama-index:
+    - "llama-index>=0.12.32"
+    - "llama-index-core>=0.12.32"
+    - "llama-index-llms-openai>=0.3.38"
+    - "llama-index-readers-wikipedia>=0.3.0"
+    - "llama-index-vector-stores-pinecone>=0.4.5"
+  
+  crewai:
+    - "crewai>=0.95.0"
+    - "crewai-tools>=0.33.0"
+  
+  pydantic:
+    - "pydantic-ai==0.0.43"
+    - "pydantic>=2.11.1"
