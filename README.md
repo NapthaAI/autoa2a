@@ -23,6 +23,7 @@ Install from source:
 ```bash
 git clone https://github.com/NapthaAI/autoa2a
 cd autoa2a
+python setup_dev.py
 pip install -e .
 ```
 
@@ -33,6 +34,7 @@ git clone https://github.com/NapthaAI/autoa2a
 cd autoa2a
 uv venv
 source .venv/bin/activate
+python setup_dev.py
 uv sync
 ```
 
