@@ -4,13 +4,19 @@ version = "0.0.1"
 description = "Converts any agent into A2A server"
 requires-python = ">=3.12"
 dependencies = [
-    "pydantic>=2.11.1",
     "click>=8.1.8",
     "jinja2>=3.1.6",
     "uvicorn>=0.17.0",
     "python-dotenv>=1.1.0",
     "pyjwt>=2.10.1",
     "jwcrypto>=1.5.6",
+    "httpx>=0.28.1",
+    "httpx-sse>=0.4.0",
+    "pydantic>=2.10.6",
+    "sse-starlette>=2.2.1",
+    "starlette>=0.46.1",
+    "typing-extensions>=4.12.2",
+    "uvicorn>=0.34.0",
 ]
 
 [build-system]
