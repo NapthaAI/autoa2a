@@ -61,7 +61,7 @@ def init(framework):
 
         click.echo("\n🎉 A2A scaffold initialized in current directory.")
         click.echo("👉 Next steps: Follow the TODOs in the code to update the agent import, input/output logic, and run the server.")
-        click.echo("👉 Run the server with `uv run .`")
+        click.echo("👉 Run the server with `uv run serve_a2a`")
     
     except Exception as e:
         click.echo(f"❌ Error: {e}")

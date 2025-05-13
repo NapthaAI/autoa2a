@@ -12,7 +12,7 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-autoa2a = { path = "../../../", editable = true }
+autoa2a = { git = "https://github.com/NapthaAI/autoa2a" }
 
 [build-system]
 requires = [ "hatchling", ]

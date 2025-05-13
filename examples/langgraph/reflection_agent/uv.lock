@@ -7,22 +7,6 @@ resolution-markers = [
 ]
 
 [[package]]
-name = "a2a-samples"
-version = "0.1.0"
-source = { git = "https://github.com/google/A2A.git?subdirectory=samples%2Fpython&rev=main#2b0e8ba2e95a756b2fb6abfb91ca3e5555036b8d" }
-dependencies = [
-    { name = "httpx" },
-    { name = "httpx-sse" },
-    { name = "jwcrypto" },
-    { name = "pydantic" },
-    { name = "pyjwt" },
-    { name = "sse-starlette" },
-    { name = "starlette" },
-    { name = "typing-extensions" },
-    { name = "uvicorn" },
-]
-
-[[package]]
 name = "annotated-types"
 version = "0.7.0"
 source = { registry = "https://pypi.org/simple" }
@@ -47,25 +31,21 @@ wheels = [
 
 [[package]]
 name = "autoa2a"
-version = "0.1.0"
-source = { editable = "../../../" }
+version = "0.0.3"
+source = { git = "https://github.com/NapthaAI/autoa2a#14df5a499003dcfb447fd3d049e3a4d036011ef4" }
 dependencies = [
-    { name = "a2a-samples" },
     { name = "click" },
+    { name = "httpx" },
+    { name = "httpx-sse" },
     { name = "jinja2" },
+    { name = "jwcrypto" },
     { name = "pydantic" },
+    { name = "pyjwt" },
     { name = "python-dotenv" },
+    { name = "sse-starlette" },
+    { name = "starlette" },
+    { name = "typing-extensions" },
     { name = "uvicorn" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "a2a-samples", git = "https://github.com/google/A2A.git?subdirectory=samples%2Fpython&rev=main" },
-    { name = "click", specifier = ">=8.1.8" },
-    { name = "jinja2", specifier = ">=3.1.6" },
-    { name = "pydantic", specifier = ">=2.11.1" },
-    { name = "python-dotenv", specifier = ">=1.1.0" },
-    { name = "uvicorn", specifier = ">=0.17.0" },
 ]
 
 [[package]]
@@ -147,14 +127,14 @@ wheels = [
 
 [[package]]
 name = "click"
-version = "8.1.8"
+version = "8.2.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "colorama", marker = "sys_platform == 'win32'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz", hash = "sha256:ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a", size = 226593 }
+sdist = { url = "https://files.pythonhosted.org/packages/cd/0f/62ca20172d4f87d93cf89665fbaedcd560ac48b465bd1d92bfc7ea6b0a41/click-8.2.0.tar.gz", hash = "sha256:f5452aeddd9988eefa20f90f05ab66f17fce1ee2a36907fd30b05bbb5953814d", size = 235857 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/7e/d4/7ebdbd03970677812aac39c869717059dbb71a4cfc033ca6e5221787892c/click-8.1.8-py3-none-any.whl", hash = "sha256:63c132bbbed01578a06712a2d1f497bb62d9c1c0d329b7903a866228027263b2", size = 98188 },
+    { url = "https://files.pythonhosted.org/packages/a2/58/1f37bf81e3c689cc74ffa42102fa8915b59085f54a6e4a80bc6265c0f6bf/click-8.2.0-py3-none-any.whl", hash = "sha256:6b303f0b2aa85f1cb4e5303078fadcbcd4e476f114fab9b5007005711839325c", size = 102156 },
 ]
 
 [[package]]
@@ -348,7 +328,7 @@ wheels = [
 
 [[package]]
 name = "langchain-core"
-version = "0.3.58"
+version = "0.3.59"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "jsonpatch" },
@@ -359,9 +339,9 @@ dependencies = [
     { name = "tenacity" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/7e/9c/b430593bf98d55b966fb2f38fdd5f23e77ce07a63c84923ba6de1b2ffe76/langchain_core-0.3.58.tar.gz", hash = "sha256:6ee2282b02fa65bf4ee1afa869d431505536757ff2f1f9f0b432d8ca755d66c6", size = 557004 }
+sdist = { url = "https://files.pythonhosted.org/packages/51/78/d17dae349301712e5b1bb4c0c98ecf84c566a71666fbcb1d4006c67b043a/langchain_core-0.3.59.tar.gz", hash = "sha256:052a37cf298c505144f007e5aeede6ecff2dc92c827525d1ef59101eb3a4551c", size = 557225 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c9/91/454a94275d323c0969e1f17a293cc87cb1398ab2d73f7db0a5de7883f2a9/langchain_core-0.3.58-py3-none-any.whl", hash = "sha256:266f90d2a079fe9510190ad3be88bd993baad43e6cee0f822a883767a4bfdd5b", size = 437550 },
+    { url = "https://files.pythonhosted.org/packages/30/40/aa440a7cd05f1dab5d7c91a1284eb776c3cf3eb59fa18ed39927650cfa38/langchain_core-0.3.59-py3-none-any.whl", hash = "sha256:9686baaff43f2c8175535da13faf40e6866769015e93130c3c1e4243e7244d70", size = 437656 },
 ]
 
 [[package]]
@@ -380,7 +360,7 @@ wheels = [
 
 [[package]]
 name = "langgraph"
-version = "0.4.2"
+version = "0.4.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "langchain-core", marker = "python_full_version < '4.0'" },
@@ -390,9 +370,9 @@ dependencies = [
     { name = "pydantic" },
     { name = "xxhash" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/de/ae/c93fc1bd7bbe0e6d0664abc53e385db2efd22808d18d215a06fe03395e61/langgraph-0.4.2.tar.gz", hash = "sha256:5f85aca630359f9bdbe68563599305fa4a291186b36942e1456533a308349b04", size = 125287 }
+sdist = { url = "https://files.pythonhosted.org/packages/60/9e/5a64602eff18a99d0216a80eff823051ffbdb7c11b5a16171cee8b1ccce5/langgraph-0.4.3.tar.gz", hash = "sha256:272d5d5903f2c2882dbeeba849846a0f2500bd83fb3734a3801ebe64c1a60bdd", size = 125407 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/83/b0/f88b5d7f54767c6e47dddc42bb9c0ec881ab2044f055120f6be2384e4317/langgraph-0.4.2-py3-none-any.whl", hash = "sha256:59666217bfc3888d5de2a525468ed8c9ffc0a9346039f941502edcc0410d876c", size = 151073 },
+    { url = "https://files.pythonhosted.org/packages/35/53/0a20edd9f41eb3707722444ec1b43752b792bbe904d1c8cc3ba27f8eb2c8/langgraph-0.4.3-py3-none-any.whl", hash = "sha256:dec926e034f4d440b92a3c52139cb6e9763bc1791e79a6ea53a233309cec864f", size = 151191 },
 ]
 
 [[package]]
@@ -423,15 +403,15 @@ wheels = [
 
 [[package]]
 name = "langgraph-sdk"
-version = "0.1.66"
+version = "0.1.69"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
     { name = "orjson" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/97/7a/5fede018d8b9100db14211cfdb94aefd0e5f2e9ae738072f3d4cc443465b/langgraph_sdk-0.1.66.tar.gz", hash = "sha256:81474ad4555a06004cc7a2f4ab477135d5eaf7db11fbcf2a69257fb2d717582e", size = 44049 }
+sdist = { url = "https://files.pythonhosted.org/packages/06/78/4ca0603240332be5fc8ebbb9bc418896310643bef32e3319a311fab37e4c/langgraph_sdk-0.1.69.tar.gz", hash = "sha256:2e85d73b78a03f9606d0fafd62048b3060371149f6f9e61f07f087fd56c766fa", size = 45343 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/97/06/87ce0b8043ba5a4ec8369a243f3140f8fd9d9b7aab1d8a9351711739beea/langgraph_sdk-0.1.66-py3-none-any.whl", hash = "sha256:f781c63f3e913d3d6bedb02cb84d775cda64e3cdf3282fd387bdd8faaf53c603", size = 47584 },
+    { url = "https://files.pythonhosted.org/packages/b0/e6/8e82a0373e233392d83ae37f473c9799c536b307322f0caf49a59bce9522/langgraph_sdk-0.1.69-py3-none-any.whl", hash = "sha256:0ed117bcdf67285a17c57f6265f1d94f2dbd71346cf48a8e1a5fa25e523eb6b8", size = 48905 },
 ]
 
 [[package]]
@@ -492,7 +472,7 @@ wheels = [
 
 [[package]]
 name = "openai"
-version = "1.77.0"
+version = "1.78.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
@@ -504,9 +484,9 @@ dependencies = [
     { name = "tqdm" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/cc/c0/ea2e9a78bf88404b97e7b708f0823b4699ab2ee3f5564425b8531a890a43/openai-1.77.0.tar.gz", hash = "sha256:897969f927f0068b8091b4b041d1f8175bcf124f7ea31bab418bf720971223bc", size = 435778 }
+sdist = { url = "https://files.pythonhosted.org/packages/a4/3f/4e5e7b0548a15eabc4a755c93cd5f9564887e3d2fd45b6ff531352e5859d/openai-1.78.1.tar.gz", hash = "sha256:8b26b364531b100df1b961d03560042e5f5be11301d7d49a6cd1a2b9af824dca", size = 442985 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/90/58/37ae3ca75936b824a0a5ca30491c968192007857319d6836764b548b9d9b/openai-1.77.0-py3-none-any.whl", hash = "sha256:07706e91eb71631234996989a8ea991d5ee56f0744ef694c961e0824d4f39218", size = 662031 },
+    { url = "https://files.pythonhosted.org/packages/3c/4c/3889bc332a6c743751eb78a4bada5761e50a8a847ff0e46c1bd23ce12362/openai-1.78.1-py3-none-any.whl", hash = "sha256:7368bf147ca499804cc408fe68cdb6866a060f38dec961bbc97b04f9d917907e", size = 680917 },
 ]
 
 [[package]]
@@ -704,7 +684,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "autoa2a", editable = "../../../" },
+    { name = "autoa2a", git = "https://github.com/NapthaAI/autoa2a" },
     { name = "langchain-core", specifier = ">=0.3.55" },
     { name = "langchain-openai", specifier = ">=0.3.14" },
     { name = "langgraph", specifier = ">=0.3.31" },
@@ -787,15 +767,15 @@ wheels = [
 
 [[package]]
 name = "sse-starlette"
-version = "2.3.4"
+version = "2.3.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
     { name = "starlette" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/43/be/7e776a29b5f712b5bd13c571256a2470fcf345c562c7b2359f2ee15d9355/sse_starlette-2.3.4.tar.gz", hash = "sha256:0ffd6bed217cdbb74a84816437c609278003998b4991cd2e6872d0b35130e4d5", size = 17522 }
+sdist = { url = "https://files.pythonhosted.org/packages/10/5f/28f45b1ff14bee871bacafd0a97213f7ec70e389939a80c60c0fb72a9fc9/sse_starlette-2.3.5.tar.gz", hash = "sha256:228357b6e42dcc73a427990e2b4a03c023e2495ecee82e14f07ba15077e334b2", size = 17511 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/43/a4/ee4a20f0b5ff34c391f3685eff7cdba1178a487766e31b04efb51bbddd87/sse_starlette-2.3.4-py3-none-any.whl", hash = "sha256:b8100694f3f892b133d0f7483acb7aacfcf6ed60f863b31947664b6dc74e529f", size = 10232 },
+    { url = "https://files.pythonhosted.org/packages/c8/48/3e49cf0f64961656402c0023edbc51844fe17afe53ab50e958a6dbbbd499/sse_starlette-2.3.5-py3-none-any.whl", hash = "sha256:251708539a335570f10eaaa21d1848a10c42ee6dc3a9cf37ef42266cdb1c52a8", size = 10233 },
 ]
 
 [[package]]
