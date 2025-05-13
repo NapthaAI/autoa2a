@@ -1,6 +1,7 @@
 import click
 import os
 from jinja2 import Template
+import yaml
 
 TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), 'templates')  # Directory where the template files are stored
 COMMON_TEMPLATE_DIR = os.path.join(TEMPLATE_DIR, 'common')
@@ -12,6 +13,17 @@ def autoa2a():
     """AutoA2A: A tool to scaffold A2A server agents"""
     pass
 
+def load_framework_dependencies(framework):
+    """Load framework-specific dependencies from YAML file"""
+    deps_path = os.path.join(TEMPLATE_DIR, 'framework_dependencies.yaml')
+    try:
+        with open(deps_path, 'r') as f:
+            all_deps = yaml.safe_load(f)
+            return all_deps.get('frameworks', {}).get(framework, [])
+    except Exception as e:
+        click.echo(f"Warning: Could not load framework dependencies: {e}")
+        return []
+
 @click.command()
 @click.option('--framework', type=str, default='langgraph', help='Framework name (e.g., langgraph, openai, llama-index, crewai, pydantic, other)')
 def init(framework):
@@ -22,8 +34,33 @@ def init(framework):
         else:
             raise ValueError(f"Unsupported framework: {framework}")
         
+
+        # render pyproject.toml if it doesn't exist
+        pyproject_template_path = os.path.join(COMMON_TEMPLATE_DIR, 'pyproject.toml.jinja2')
+        pyproject_output_path = os.path.join(OUTPUT_DIR, 'pyproject.toml')
+        framework_dependencies = load_framework_dependencies(framework)
+        if not os.path.exists(pyproject_output_path):
+            name = "autoa2a-agent"
+            description = "An A2A server agent"
+            with open(pyproject_template_path, 'r') as f:
+                template_content = f.read()
+                template = Template(template_content)
+                rendered_content = template.render(
+                    project_name=name,
+                    description=description,
+                    framework=framework,
+                    framework_dependencies=framework_dependencies
+                )
+            with open(pyproject_output_path, 'w') as out_f:
+                out_f.write(rendered_content)
+            click.echo(f"✅ Created: pyproject.toml")
+        else:
+            click.echo(f"👉 pyproject.toml already exists in {OUTPUT_DIR}")
+        
         for filename in os.listdir(COMMON_TEMPLATE_DIR):
             if filename.endswith(".jinja2"):
+                if filename == "pyproject.toml.jinja2":
+                    continue
                 template_path = os.path.join(COMMON_TEMPLATE_DIR, filename)
                 output_filename = filename.replace(".jinja2", "")
                 output_path = os.path.join(OUTPUT_DIR, output_filename)
