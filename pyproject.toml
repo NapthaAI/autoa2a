@@ -1,7 +1,10 @@
 [project]
 name = "autoa2a"
-version = "0.0.1"
-description = "Converts any agent into A2A server"
+version = "0.0.3"
+description = "Converts any agent into A2A servers"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Richard Blythman", email = "richard@naptha.ai" }]
 requires-python = ">=3.12"
 dependencies = [
     "click>=8.1.8",
@@ -18,6 +21,9 @@ dependencies = [
     "typing-extensions>=4.12.2",
     "uvicorn>=0.34.0",
 ]
+
+[project.urls]
+"Homepage" = "https://github.com/NapthaAI/autoa2a"
 
 [build-system]
 requires = ["hatchling"]
