@@ -1,6 +1,6 @@
 [project]
 name = "autoa2a"
-version = "0.0.2"
+version = "0.0.1"
 description = "Converts any agent into A2A server"
 requires-python = ">=3.12"
 dependencies = [
