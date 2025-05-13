@@ -11,7 +11,7 @@ class A2AWrapperAgent:
 
     async def invoke(self, input_data: TaskInput, sessionId: str) -> Dict[str, Any]:
         try:
-            result = await self.agent.run_sync(input_data.query)
+            result = await self.agent.run(input_data.query)
 
             return {
                 "is_task_complete": True,

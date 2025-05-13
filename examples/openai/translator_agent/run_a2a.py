@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 @click.option("--port", "port", default=10000)
 def main(host, port):
     try:
-        capabilities = AgentCapabilities(streaming=True, pushNotifications=True)
+        capabilities = AgentCapabilities(streaming=False, pushNotifications=True)
         skill = AgentSkill(
             id="openai_translator_agent",
             name="OpenAI Translator Agent",
